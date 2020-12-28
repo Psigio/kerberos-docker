@@ -49,4 +49,7 @@ echo "" >> /etc/php/7.1/fpm/pool.d/env.conf
 env | grep "KERBEROSIO_" | sed "s/\(.*\)=\(.*\)/env[\1]='\2'/" >> /etc/php/7.1/fpm/pool.d/env.conf
 service php7.1-fpm start
 
+# Start dbus
+dbus-run-session
+
 /usr/bin/supervisord -n -c /etc/supervisord.conf
