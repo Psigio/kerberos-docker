@@ -75,9 +75,9 @@ RUN apt-get install -y pkg-config && git clone https://github.com/FFmpeg/FFmpeg 
 ############################
 # Clone and build machinery
 
-RUN apt-get install -y libglib2.0 libglib2.0-dev libbluetooth-dev libdbus-1-dev
+RUN apt-get install -y libglib2.0-dev libbluetooth-dev libdbus-1-dev
 RUN git clone https://github.com/psigio/machinery.git /tmp/machinery && \
-    cd /tmp/machinery && git checkout 4188fb82c1f386871ed997763270f63b9e5c6fac && \
+    cd /tmp/machinery && git checkout ecdcbe6115733d2e15df2b4618467ac91cb1a612 && \
     mkdir build && cd build && \
     cmake .. && make && make check && make install && \
     rm -rf /tmp/machinery && \
