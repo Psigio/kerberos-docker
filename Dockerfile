@@ -124,7 +124,7 @@ RUN cp /usr/local/bin/ffmpeg ./usr/bin/ffmpeg
 RUN ldd /usr/bin/kerberosio | tr -s '[:blank:]' '\n' | grep '^/' | \
     xargs -I % sh -c 'mkdir -p $(dirname ./%); cp % ./%;'
 
-FROM debian:stable-slim
+FROM debian:stretch-slim
 
 #################################
 # Copy files from previous images
