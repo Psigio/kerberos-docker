@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y apt-transport-https wget lsb-release &&
 
 ## Set up DBus
 RUN apt-get install -y dbus
+COPY dbus.conf /etc/dbus-1/session.d/
 
 RUN wget http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2 && \
     tar xjvf nasm-2.14.02.tar.bz2  && \
