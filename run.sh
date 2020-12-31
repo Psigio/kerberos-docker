@@ -51,6 +51,5 @@ service php7.1-fpm start
 
 # Start dbus
 service dbus start
-dbus-run-session
 
 /usr/bin/supervisord -n -c /etc/supervisord.conf
