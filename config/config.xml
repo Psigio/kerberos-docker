@@ -13,6 +13,7 @@
         <heuristic file="heuristic.xml">Sequence</heuristic>
         <io file="io.xml" type="multiple">Video</io>
         <cloud file="cloud.xml">S3</cloud>
+        <cloudEnabled type="bool">false</cloudEnabled>
     </instance>
 
 </kerberos>
