@@ -9,5 +9,9 @@
     	<active type="bool">true</active>
         <delay type="number">5000</delay>
     </Enabled>
-    
+    <Bluetooth>
+        <bluetoothAdapter type="string">hci0</bluetoothAdapter>
+        <bluetoothRssiThreshold type="number">-80</bluetoothRssiThreshold>
+        <bluetoothDevice type="string"></bluetoothDevice>
+    </Bluetooth>  
 </conditions>
