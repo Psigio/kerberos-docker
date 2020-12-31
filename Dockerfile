@@ -131,6 +131,8 @@ FROM debian:stretch-slim
 COPY --chown=0:0 --from=builder /dist/etc/opt /etc/opt
 COPY --chown=0:0 --from=builder /dist/usr/bin /usr/bin
 COPY --chown=0:0 --from=builder /dist/var/www /var/www
+COPY --chown=0:0 --from=builder /dist/usr/lib /usr/lib
+COPY --chown=0:0 --from=builder /dist/bin/ffmpeg /usr/bin/ffmpeg
 
 RUN apt-get -y update && apt-get install -y apt-transport-https wget curl lsb-release && \
     wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
