@@ -179,6 +179,11 @@ RUN sed -i 's/www-data/root/g' /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf
 RUN sed -i 's/www-data/root/g' /etc/nginx/nginx.conf
 RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php/${PHP_VERSION}/fpm/pool.d/www.conf && \
     find /etc/php/${PHP_VERSION}/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
+    
+############################
+# Dbus binaries
+RUN apt -y install dbus
+############################
 
 ############################
 # COPY template folder
@@ -201,7 +206,8 @@ VOLUME ["/etc/opt/kerberosio/config"]
 VOLUME ["/etc/opt/kerberosio/logs"]
 VOLUME ["/var/www/web/config"]
 
-# DBUS config file
-COPY dbus.conf /etc/dbus-1/session.d/
+# DBUS socket
+RUN mkdir -p /var/run/dbus
+VOLUME /var/run/dbus
 
 CMD ["bash", "/run.sh"]
