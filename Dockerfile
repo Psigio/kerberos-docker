@@ -83,7 +83,7 @@ RUN git clone https://github.com/psigio/machinery.git /tmp/machinery && \
 #####################
 # Clone and build web
 
-RUN git clone https://github.com/psigio/web.git /var/www/web && cd /var/www/web && git checkout fa0b0289d79fc155cecd7a8d2e0daab899d20973 && \
+RUN git clone https://github.com/psigio/web.git /var/www/web && cd /var/www/web && git checkout ef12b6333902489d806ee8394a528fbd0dd6dbe7 && \
     chown -Rf www-data.www-data /var/www/web && curl -sSk https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     cd /var/www/web && \
     composer install --prefer-source && \
