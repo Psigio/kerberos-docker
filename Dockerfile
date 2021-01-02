@@ -33,10 +33,6 @@ RUN apt-get update && apt-get install -y apt-transport-https wget lsb-release &&
     php${PHP_VERSION}-mbstring php${PHP_VERSION}-dom php${PHP_VERSION}-zip php${PHP_VERSION}-fpm pwgen && \
     curl -sL https://deb.nodesource.com/setup_9.x | bash - && apt-get install -y nodejs npm
 
-## Set up DBus
-RUN apt-get install -y dbus
-COPY dbus.conf /etc/dbus-1/session.d/
-
 RUN wget http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.bz2 && \
     tar xjvf nasm-2.14.02.tar.bz2  && \
     cd nasm-2.14.02  && \
@@ -87,7 +83,7 @@ RUN git clone https://github.com/psigio/machinery.git /tmp/machinery && \
 #####################
 # Clone and build web
 
-RUN git clone https://github.com/kerberos-io/web /var/www/web && cd /var/www/web && git checkout a17c2db770cce5c9f2aa4c13d76367647a9dba4d && \
+RUN git clone https://github.com/psigio/web.git /var/www/web && cd /var/www/web && git checkout fa0b0289d79fc155cecd7a8d2e0daab899d20973 && \
     chown -Rf www-data.www-data /var/www/web && curl -sSk https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     cd /var/www/web && \
     composer install --prefer-source && \
